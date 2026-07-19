@@ -1,0 +1,45 @@
+{
+  "skill_name": "mentor",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "разбери мою последнюю сессию и скажи честно, что я делаю не так когда работаю с агентом",
+      "expected_output": "A senior retrospective of the most recent transcript: TL;DR, strengths, ranked weaknesses with per-item lifehacks, one habit to drill.",
+      "expectations": [
+        "The skill runs scripts/digest.py to parse a transcript before giving feedback",
+        "Feedback cites concrete session evidence (prompt numbers or metrics), not generic advice",
+        "Output follows the format: TL;DR, what worked, what dragged down (ranked), one habit",
+        "Feedback critiques the process of working with the agent, not the code that was produced",
+        "The delivered Russian text reads naturally without AI-slop / канцелярит"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "give me an honest retrospective of how I prompted in yesterday's coding session and how to get better with models",
+      "expected_output": "Same senior-mentor retrospective, in the language the user is using, grounded in the digest of the relevant session.",
+      "expectations": [
+        "The skill selects a session transcript and digests it before judging",
+        "Weaknesses map to the best-practices canon (goal formulation, verification, scope, context, model tiering)",
+        "Every criticism carries a concrete next-time lifehack"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "прогони мои сессии за неделю и найди повторяющиеся ошибки в том, как я ставлю задачи агенту",
+      "expected_output": "Multi-session synthesis: digest several transcripts, surface patterns that repeat across them (repeated mistakes prioritized).",
+      "expectations": [
+        "The skill digests more than one transcript",
+        "Output emphasizes patterns that repeat across sessions over one-off issues"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "на что мне обратить внимание чтобы меньше жечь токены и точнее формулировать цели для агента",
+      "expected_output": "Feedback focused on goal formulation and cost/model-tiering, evidenced from the user's own sessions.",
+      "expectations": [
+        "The skill grounds advice in the user's actual session digest, not abstract tips",
+        "Advice covers precise goal formulation and using cheaper models where they suffice"
+      ]
+    }
+  ]
+}
